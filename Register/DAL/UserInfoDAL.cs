@@ -14,8 +14,8 @@ namespace Register.DAL
         SQLHelper sqlHelp = new SQLHelper();
         public int UserLogin(UserInfo user)
         {
-            int i = (int)sqlHelp.ExecuteScalar("select count(*) from T_login where UserName=@UserName",
-                 new SqlParameter("@UserName", user.userName));
+            int i = Convert.ToInt32(sqlHelp.ExecuteScalar("select count(*) from T_login where UserName=@UserName",
+                 new SqlParameter("@UserName", user.userName)));
             return i;
         }
         public void Insert(UserInfo user)
